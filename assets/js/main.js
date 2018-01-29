@@ -298,6 +298,46 @@
 		});
 	}
 
+	$(document).ready(function() {
+	    // Configure/customize these variables.
+	    var showChar = 500;  // How many characters are shown by default
+	    var ellipsestext = "";
+	    var moretext = "Show less";
+	    var lesstext = "Keep reading";
+
+
+	    $('.article_content').each(function() {
+	        var content = $(this).html();
+
+	        if(content.length > showChar) {
+
+	            var c = content.substr(0, showChar);
+	            var h = content.substr(showChar, content.length - showChar);
+
+	            var html = c + '<span class="moreellipses">' + ellipsestext+ '</span><span class="morecontent"><span>' + h + '</span><div class="text-sm-center"><a href="" class="morelink btn  btn-readmore1">' + moretext + '</a></div></span>';
+
+	            $(this).html(html);
+	        }
+
+	    });
+
+	    $(".morelink").click(function(){
+	        if($(this).hasClass("less")) {
+	            $(this).removeClass("less");
+	            $(this).html(moretext);
+	        } else {
+	            $(this).addClass("less");
+	            $(this).html(lesstext);
+	        }
+	        $(this).parent().prev().toggle();
+	        $(this).prev().toggle();
+	        return false;
+	    });
+			$('.morelink').trigger('click');
+	});
+
+
+
 	$(document).ready(function(){
 		if (isTouchDevice) {
 			$('.background-video').remove();

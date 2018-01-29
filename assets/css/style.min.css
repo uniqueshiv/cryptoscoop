@@ -669,7 +669,7 @@ hr{
     background:rgba(255,255,255,.95);
     -webkit-backface-visibility:hidden;
     backface-visibility:hidden;
-    box-shadow:0 1px 3px rgba(0,0,0,.05),0 1px 2px rgba(0,0,0,.1);
+    box-shadow:0 0px 3px rgba(0,0,0,.05),0 0px 2px rgba(0,0,0,.1);
     -webkit-box-flex:0;
     -ms-flex:0 0 auto;
     flex:0 0 auto;
@@ -2754,6 +2754,7 @@ select.form-control:not([size]):not([multiple]){
     font-size:.92857rem;
     margin:0;
     padding:1rem 3em;
+    border-top: 1px solid #f4f0f0de;
     position:relative
 }
 .post .post-footer:after{

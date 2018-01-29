@@ -27,7 +27,7 @@
 	<!-- Theme CSS -->
 	<link rel="stylesheet" href="assets/css/style.min.css">
 </head>
-<body class="dynamic-header">
+<body class="dynamic-header" onload="loadcrypto()">
 <div class="preloader"><div class="loader"></div></div>
 
 <div class="page-box">
@@ -203,7 +203,7 @@
 					<ul class="nav pull-right navbar-nav search_user_btn">
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<i class="fa fa-user-o fa-2x"></i></a>
+							<img src="assets/img/user.png" alt="user"></a>
 
 								<ul class="dropdown-menu">
 									<li class="menu-item"><i class="fa fa-cog" aria-hidden="true"></i></i><a href="">Account Setting</a></li>
@@ -215,7 +215,7 @@
 								</ul>
 						</li>
 						<li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search fa-2x"></i></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/img/search.png" alt="search"></a>
             	<ul class="dropdown-menu">
                 <form class="form-inline">
      										<input type="text" class="form-control pull-left" placeholder="Search">
@@ -229,7 +229,12 @@
 			</div>
 		</div>
 	</header><!-- .site-header -->
+		<div class="market_box1">
+			<marquee behavior="scroll" id="markqq" direction="left" loop="infinite" onmousedown="this.stop();" onmouseup="this.start();">
 
+			</marquee>
+		</div>
+		<div id="crypto"></div>
 	<main id="main">
 		<br>
 		<div class="container">
@@ -248,7 +253,7 @@
 								</div>
 								<div class="article-right">
 									<div class="row">
-										<div class="col-sm-4 col-xs-6"><a href="#" class="author">Khori Ankina</a><div class="date">2 hours ago</div></div>
+										<div class="col-sm-4 col-xs-6"><a href="#" class="author">Khori Ankina</a><div class="date"><i class="fa fa-clock-o" aria-hidden="true"></i>2 hours ago</div></div>
 										<div class="col-sm-8 col-xs-6 text-xs-right tags all-caps"><a href="#" class="tag-btn">Mobile</a>
 										</div>
 									</div>
@@ -261,15 +266,17 @@
 							<div class="article-left">
 								<ul class="post_shares">
 								<li><div class="count_like">1.9k</div><a href="#">
-								<i class="fa fa-heart-o" aria-hidden="true"></i></a>
+								<img src="assets/img/favourite.png"></i></a>
 								</li>
 								<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+								<li><a href="#" class="fb_circle"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
 								<li><a href="#"><i class="fa fa-bookmark-o" aria-hidden="true"></i></a></li>
 								</ul>
 							</div>
 							<div class="article-right">
-								<h2 class="post-title"><a href="#" class="title">A technological map of the future</a></h2>
+								<h2 class="post-title">
+									<a href="#" class="title">Bitcoin Price Will Rise ‘Well Beyond $100,000’, Says Blockchain Marketplace Executive</a></h2>
+								<div class="article_content">
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid amet aspernatur dolores dolorum
 								fuga fugit, hic ipsam magnam magni mollitia nulla pariatur perferendis porro saepe sequi suscipit
 								temporibus totam veritatis! Accusamus amet animi at, beatae deleniti deserunt eum explicabo laboriosam
@@ -277,10 +284,22 @@
 								ullam vero voluptate. Adipisci aspernatur commodi doloremque doloribus error est et illum iusto,
 								laborum laudantium nam nobis nostrum praesentium quasi quibusdam ratione reprehenderit, sequi
 								veritatis, vitae?</p>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid amet aspernatur dolores dolorum
+									fuga fugit, hic ipsam magnam magni mollitia nulla pariatur perferendis porro saepe sequi suscipit
+									temporibus totam veritatis! Accusamus amet animi at, beatae deleniti deserunt eum explicabo laboriosam
+									minus molestiae nesciunt nobis, non odit perferendis quam qui quo repudiandae, sed similique soluta
+									ullam vero voluptate. Adipisci aspernatur commodi doloremque doloribus error est et illum iusto,
+									laborum laudantium nam nobis nostrum praesentium quasi quibusdam ratione reprehenderit, sequi
+									veritatis, vitae?</p>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid amet aspernatur dolores dolorum
+										fuga fugit, hic ipsam magnam magni mollitia nulla pariatur perferendis porro saepe sequi suscipit
+										temporibus totam veritatis! Accusamus amet animi at, beatae deleniti deserunt eum explicabo laboriosam
+										minus molestiae nesciunt nobis, non odit perferendis quam qui quo repudiandae, sed similique soluta
+										ullam vero voluptate. Adipisci aspernatur commodi doloremque doloribus error est et illum iusto,
+										laborum laudantium nam nobis nostrum praesentium quasi quibusdam ratione reprehenderit, sequi
+										veritatis, vitae?</p>
 
-								<div class="more text-xs-center">
-									<span class="btn btn-readmore">Keep Reading</span>
-								</div>
+							</div>
 							</div>
 							<div class="clearfix"></div>
 						</div>
@@ -333,10 +352,10 @@
 							<div class="article-left">
 								<ul class="post_shares">
 								<li><div class="count_like">1.9k</div><a href="#">
-								<i class="fa fa-heart-o" aria-hidden="true"></i></a>
+								<img src="assets/img/favourite.png"></i></a>
 								</li>
 								<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+								<li><a href="#" class="fb_circle"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
 								<li><a href="#"><i class="fa fa-bookmark-o" aria-hidden="true"></i></a></li>
 								</ul>
 							</div>
@@ -404,10 +423,10 @@
 							<div class="article-left">
 								<ul class="post_shares">
 								<li><div class="count_like">1.9k</div><a href="#">
-								<i class="fa fa-heart-o" aria-hidden="true"></i></a>
+								<img src="assets/img/favourite.png"></i></a>
 								</li>
 								<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+								<li><a href="#" class="fb_circle"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
 								<li><a href="#"><i class="fa fa-bookmark-o" aria-hidden="true"></i></a></li>
 								</ul>
 							</div>
@@ -475,10 +494,10 @@
 							<div class="article-left">
 								<ul class="post_shares">
 								<li><div class="count_like">1.9k</div><a href="#">
-								<i class="fa fa-heart-o" aria-hidden="true"></i></a>
+								<img src="assets/img/favourite.png"></a>
 								</li>
 								<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+								<li><a href="#" class="fb_circle"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
 								<li><a href="#"><i class="fa fa-bookmark-o" aria-hidden="true"></i></a></li>
 								</ul>
 							</div>
@@ -492,9 +511,6 @@
 								laborum laudantium nam nobis nostrum praesentium quasi quibusdam ratione reprehenderit, sequi
 								veritatis, vitae?</p>
 
-								<div class="more text-xs-center">
-									<a href="post.html" class="btn btn-outline-default">Keep Reading</a>
-								</div>
 							</div>
 							<div class="clearfix"></div>
 						</div>
@@ -711,6 +727,33 @@
 <script src="assets/js/jquery.magnific-popup.min.js"></script>
 <script src="assets/js/masonry.pkgd.min.js"></script>
 <script src="assets/js/main.js"></script>
+<script type="text/javascript">
+var txt="";
 
+      function loadcrypto(){
+        //alert('sss')
+        var xhr=new XMLHttpRequest();
+        xhr.open('GET','https://api.coinmarketcap.com/v1/ticker/?limit=50',true);
+        xhr.onload=function(){
+          if(this.status==200){
+            var data=JSON.parse(this.responseText);
+            console.log(this.responseText);
+            var output="<ul class='market_box'>";
+            for(var i in data){
+            	if(parseFloat(data[i].percent_change_1h)>=0){
+            		var span='<span style="color:#19daa2; line-height:2;"><i class="fa fa-arrow-up" style="position:relative; top:3px;"></i></span>';
+            	}else{
+            		 span='<span style="color:red; line-height:2;"><i class="fa fa-arrow-down" style=" position:relative; top:3px;"></i></span>';
+            	}
+              output+=
+              '<div class="new"><img src="assets/img/icon.png"><li>'+data[i].symbol+'<br> '+data[i].price_usd+' ' +span+'</li> </div>';
+            }
+            output+="</ul>";
+            document.getElementById('markqq').innerHTML=output;
+          }
+        }
+        xhr.send();
+      }
+</script>
 </body>
 </html>
