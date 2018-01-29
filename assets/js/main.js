@@ -90,9 +90,9 @@
 		//Dynamic header
 		function dynamicHeader(){
 			if ($(window).scrollTop() >= 63)
-				header.addClass('small-height');
+				header.addClass('small-height1');
 			else
-				header.removeClass('small-height');
+				header.removeClass('small-height1');
 		}
 		if(body.hasClass('dynamic-header')) {
 			dynamicHeader();
@@ -102,41 +102,41 @@
 		}
 	}
 
-	//Header actions
-	function headerActions() {
-		var header = $('.site-header'),
-				action = header.find('.action-box'),
-				close  = action.find('.close');
-
-		$('.header-btn').on('click', function(e){
-			var $this = $(this);
-			e.preventDefault();
-
-			if(!$this.closest('.action-box').hasClass('dropdown'))
-				header.addClass('open-action');
-
-			setTimeout(function(){
-				$this.closest('.action-box').addClass('active').find('.search-input').focus();
-			}, 300);
-		});
-
-		function closeBox(){
-			action.removeClass('active');
-			setTimeout(function(){
-				header.removeClass('open-action');
-			}, 300);
-		}
-
-    close.on('click', function(e){
-      e.preventDefault();
-			closeBox();
-		});
-
-		$('body').on('click', function(e){
-			if(!$(e.target).is('.site-header, .site-header *'))
-				closeBox();
-		});
-	}
+	// //Header actions
+	// function headerActions() {
+	// 	var header = $('.site-header'),
+	// 			action = header.find('.action-box'),
+	// 			close  = action.find('.close');
+  //
+	// 	$('.header-btn').on('click', function(e){
+	// 		var $this = $(this);
+	// 		e.preventDefault();
+  //
+	// 		if(!$this.closest('.action-box').hasClass('dropdown'))
+	// 			header.addClass('open-action');
+  //
+	// 		setTimeout(function(){
+	// 			$this.closest('.action-box').addClass('active').find('.search-input').focus();
+	// 		}, 300);
+	// 	});
+  //
+	// 	function closeBox(){
+	// 		action.removeClass('active');
+	// 		setTimeout(function(){
+	// 			header.removeClass('open-action');
+	// 		}, 300);
+	// 	}
+  //
+  //   close.on('click', function(e){
+  //     e.preventDefault();
+	// 		closeBox();
+	// 	});
+  //
+	// 	$('body').on('click', function(e){
+	// 		if(!$(e.target).is('.site-header, .site-header *'))
+	// 			closeBox();
+	// 	});
+	// }
 
 	//Menu
 	function menu() {
@@ -182,6 +182,8 @@
 				menu.addClass('open-menu');
 			}, 200);
 		});
+
+
 
 		menuWrap.on('click', function(e){
 			if(!$(e.target).is('.menu-list-wrap *')) {
@@ -318,118 +320,6 @@
 		headerOptions();
 		headerActions();
 
-		//Contact Form
-		$('.contact-form').on('submit', function(e){
-			var form = $(this);
-
-			e.preventDefault();
-
-			$.ajax({
-				type: 'POST',
-				url : 'php/contact.php',
-				data: form.serialize(),
-				success: function(data){
-					form.find('.form-message').html(data).fadeIn();
-					form.find('.btn').prop('disabled', true);
-
-					if ($(data).is('.send-true')){
-						setTimeout(function(){
-							form.trigger('reset');
-							form.find('.btn').prop('disabled', false);
-							form.find('.form-message').fadeOut().delay(500).queue(function(){
-								form.find('.form-message').html('').dequeue();
-							});
-						}, 2000);
-					} else {
-						form.find('.btn').prop('disabled', false);
-					}
-				}
-			});
-		});
-
-		//Subscribe
-		$('.subscribe').on('submit', function(e){
-			var form           = $(this),
-					message        = form.find('.form-message'),
-					messageSuccess = 'Your email is sended',
-					messageInvalid = 'Please enter a valid email address',
-					messageSigned  = 'This email is already signed',
-					messageErrore  = 'Error request';
-
-			e.preventDefault();
-
-			$.ajax({
-				url     : 'php/notify-me.php',
-				type    : 'POST',
-				data    : form.serialize(),
-				success : function(data){
-					form.find('.btn').prop('disabled', true);
-					message.removeClass('red-text').removeClass('green-text').fadeIn();
-
-					switch(data) {
-						case 0:
-							message.html(messageSuccess).addClass('green-text').fadeIn();
-							setTimeout(function(){
-								form.trigger('reset');
-								message.fadeOut().delay(500).queue(function(){
-									message.html('').dequeue();
-								});
-							}, 2000);
-
-							break;
-						case 1:
-							message.html(messageInvalid).addClass('red-text').fadeIn();
-
-							break;
-						case 2:
-							message.html(messageSigned).addClass('red-text').fadeIn();
-							setTimeout(function(){
-								form.trigger('reset');
-								message.fadeOut().delay(500).queue(function(){
-									message.html('').dequeue();
-								});
-							}, 2000);
-
-							break;
-						default:
-							message.html(messageErrore).addClass('red-text').fadeIn();
-					}
-
-					form.find('.btn').prop('disabled', false);
-				}
-			});
-		});
-
-		$('.image-link').each(function(){
-			var item    = $(this),
-					zoom    = false,
-					gallery = false;
-
-			if(item.data('zoom')) zoom = true;
-			if(item.data('gallery')) gallery = true;
-
-			item.magnificPopup({
-				type : 'image',
-				mainClass : 'mfp-with-zoom',
-				zoom : {
-					enabled : zoom,
-					duration : 300
-				},
-				gallery: {
-					enabled : true,
-					tCounter : '<span>%curr%</span> / %total%',
-				},
-				callbacks: {
-					elementParse: function(item) {
-						if($(item.el.context).hasClass('video-link')) {
-							item.type = 'iframe';
-						} else {
-							item.type = 'image';
-						}
-					}
-				}
-			});
-		});
 
 		$('.gallery-item').magnificPopup({
 			type : 'image',
